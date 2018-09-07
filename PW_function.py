@@ -10,7 +10,7 @@ class PW_function:
         login_data={'account':account,'password':password,'area_code':area_code}
         login_header={'appkey':'pwsite'}
         bb=json.dumps(requests.post('http://test.admin.sosho.cn/server/api/account/login',data=login_data,headers=login_header).json())
-        print(bb)
+        # print(bb)
         return bb
 
         #后面把这里改成拼接url，host+地址

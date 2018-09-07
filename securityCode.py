@@ -4,12 +4,7 @@ import pymysql
 import time
 
 #连接数据库
-connect=pymysql.connect(
-    host='test.sosho.cn',
-    port=9696,
-    user='ushoapi',
-    password='usho85121608',
-    db='usho2_test'
+connect=pymysql.connect(host="test.sosho.cn",port=9696,user="ushoapi",password="usho85121608",db="usho2_test"
     #charset=''
 )
 
