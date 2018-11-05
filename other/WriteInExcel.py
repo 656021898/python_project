@@ -17,7 +17,7 @@ import xlrd
 excelname = xlwt.Workbook()
 sheet = excelname.add_sheet('写入的数据')
 i = 1
-while i<5:
+while i<1000:
     mobile = 18500000000 + i
     if i % 2 == 1:
         sheet.write(i,0,('name'+str(i)))

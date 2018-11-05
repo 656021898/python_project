@@ -1,8 +1,101 @@
 # -*_ coding:utf-8 _*-
 # 第1题是:有四个数字：1、2、3、4，能组成多少个互不相同且无重复数字的三位数？各是多少？
+#解法1
+# list=[1,2,3,4]
+# num = []
+# for i in list :
+#     for j in list:
+#         for k in list:
+#             if i != j != k :
+#                 num.append(i*100+j*10+k)
+#             # else:
+#             #     continue
+# print('共%d个，分别为%s'%(len(num),num))
+#解法2（升级）
+# list_num=[1,2,3,4]
+# list = [
+# i*100+j*10+k for i in list_num for j in list_num for k in list_num if(i!=j!=k)
+# ]
+# print(list)
+#解法3
+# import pprint #pprint库用来格式化输出
+# list_num=['1','2','3','4']
+# list_result=[]
+# n=0
+# for i in list_num:
+#     for j in list_num:
+#         for k in list_num:
+#             if i!=j!=k :
+#                 set = (i+j+k)
+#                 print(set)
+#                 n += 1
+# print("能组成%d个互不相同且无重复数字的三位数: "%n)
+
+
+
 # 第3题是:一个整数，它加上100后是一个完全平方数，再加上168又是一个完全平方数，请问该数是多少？
+# list1=[]
+# for i in range(40):
+#     list1.append(i**2)
+# for j in range(500):
+#     if (j+100) in list1:
+#         if (j+268) in list1:
+#             print(j)
+# 解法2：
+# print([n**2-100 for m in range(168) for n in range(m) if(m+n)*(m-n)==168])
+# for m in range(168):
+#     for n in range(m,168):
+#         if (n-m)*(n+m) == 168:
+#             print(m**2-100)
+
+
+
 # 第4题是:输入某年某月某日，判断这一天是这一年的第几天？
+# year=int(input('请输入年份'))
+# month=int(input('请输入月份'))
+# day=int(input('请输入日子'))
+# if (year % 4 ==0 and year % 100 != 0) or (year % 400 ==0):
+#     if month <= 2:
+#         print('共%d天' % ((month // 2) * 31 + ((month - 1) // 2) * 30 + day))
+#     else:
+#         print('共%d天' % ((month//2) * 31 + ((month - 1) // 2) * 30 - 1 + day))
+# else:
+#     if month<=2:
+#         print('共%d天' % ((month // 2) * 31 + ((month - 1) // 2) * 30 + day))
+#     else:
+#         print('共%d天' % ((month // 2) * 31 + ((month - 1) // 2) * 30 - 2 + day))
+#高手：
+# year=int(input('请输入年份'))
+# month=int(input('请输入月份'))
+# day=int(input('请输入日子'))
+# days=[31,28,31,30,31,60,31,30,31,30,31,30]
+# if (year % 4 ==0 and year % 100 != 0) or (year % 400 ==0):
+#     days[1] +=1
+# print('共%d天'%(sum(days[0:(month-1)])+day))
+
+
+
+#格式化处理日期
+# import time
+#
+# data = input('请输入日期：')
+# aa = time.strptime(data,'%Y-%m-%d')
+# print(type(aa))
+# a,b,c=aa[0:3]
+# print(a,b,c)
+
+
+
 # 第5题是:输入三个整数x,y,z，请把这三个数由小到大输出。
+# x,y,z = input("请输入3个数").split()
+# list1=[]
+# list1.append(x,y,z)
+# print(list1)
+
+
+
+
+
 # 第6题是:斐波那契数列。
 # 第7题是:将一个列表的数据复制到另一个列表中。
 # 第8题是:输出 9*9 乘法口诀表。
@@ -65,6 +158,21 @@
 # 第67题是:输入数组，最大的与第一个元素交换，最小的与最后一个元素交换，输出数组。
 # 第68题是:有n个整数，使其前面各数顺序向后移m个位置，最后m个数变成最前面的m个数
 # 第69题是:有n个人围成一圈，顺序排号。从第一个人开始报数（从1到3报数），凡报到3的人退出圈子，问最后留下的是原来第几号的那位。
+n = int(input("请输入人数"))
+# list1 = list(range(1,n+1))
+# print(list1)
+# list1.pop(n)
+# print(list1)
+while n >2 :
+    list1 = list(range(1,n+1))
+    print(list1)
+    for i in range(1,n+1):
+        if i % 3 == 0:
+            list1.pop(i-1)
+    n=len(list1)
+print(n)
+
+
 # 第70题是:写一个函数，求一个字符串的长度，在main函数中输入字符串，并输出其长度。
 # 第71题是:编写input()和output()函数输入，输出5个学生的数据记录。
 # 第72题是:创建一个链表。
@@ -77,6 +185,10 @@
 # 第79题是:字符串排序。
 # 第80题是:海滩上有一堆桃子，五只猴子来分。第一只猴子把这堆桃子平均分为五份，多了一个，这只猴子把多的一个扔入海中，拿走了一份。第二只猴子把剩下的桃子又平均分成五份，又多了一个，它同样把多的一个扔入海中，拿走了一份，第三、第四、第五只猴子都是这样做的，问海滩上原来最少有多少个桃子？
 # 第81题是:809*??=800*??+9*?? 其中??代表的两位数, 809*??为四位数，8*??的结果为两位数，9*??的结果为3位数。求??代表的两位数，及809*??后的结果。
+# for i in range(10,100):
+#     if (809*i==800*i+9*i) and (809*i<=9999) and (8*i<=99):
+#         print(i,(809*i),(800*i+9*i))
+
 # 第82题是:八进制转换为十进制
 # 第83题是:求0—7所能组成的奇数个数。
 # 第84题是:连接字符串。

@@ -1,0 +1,10 @@
+test_login_mobilephone_none (homework.homework_1030.MyTest.MyTest) ... ok
+test_login_normal (homework.homework_1030.MyTest.MyTest) ... ok
+test_login_pwd_error (homework.homework_1030.MyTest.MyTest) ... ok
+test_login_pwd_none (homework.homework_1030.MyTest.MyTest) ... ok
+test_recharge_normal (homework.homework_1030.MyTest.MyTest) ... ok
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.486s
+
+OK
