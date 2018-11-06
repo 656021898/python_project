@@ -1,14 +1,8 @@
+from ddt import ddt,data,file_data,unpack
 import unittest
-from homework.homework_1103.HttpRequest import HttpRequest
 
-class TestCaseSetup(unittest.TestCase):
-
-    def __init__(self,methodname,url,data,method,code):
-        super(TestCaseSetup,self).__init__(methodname)#父类里面的__init__需要传入methodname
-        self.url = url
-        self.data = data
-        self.method = method
-        self.code = code
+@ddt
+class TestCaseSetupDdt(unittest.TestCase):
 
     def setUp(self):
         login_url = "http://119.23.241.154:8080/futureloan/mvc/api/member/login"
@@ -16,16 +10,9 @@ class TestCaseSetup(unittest.TestCase):
         login_res = HttpRequest(login_url, login_data, "post").httprequest()
         return login_res
 
-    def test_case(self):
+    def test_case(self,url,data,method,code):
         res = HttpRequest(url=self.url,data=self.data,method=self.method,cookies=self.setUp().cookies).httprequest()
         try:
             self.assertEqual(self.code,res.json()["code"])
         except AssertionError as e:
             print("报错:"+e)
-
-
-if __name__ == "__main__":
-    runner = unittest.TextTestRunner()
-    runner.run()
-
-

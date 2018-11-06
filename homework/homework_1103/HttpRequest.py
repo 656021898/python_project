@@ -11,16 +11,17 @@
 import requests
 
 class HttpRequest(object):
-    def __init__(self,url,data,method=""):
+    def __init__(self,url,data,method="",cookies=''):
         self.url = url
         self.data = data
         self.method = method.lower()
+        self.cookies = cookies
 
-    def httprequest(self,cookie=''):
+    def httprequest(self):
         if self.method == "post":
-            res = requests.post(url=self.url,data=self.data,cookies=cookie)
+            res = requests.post(url=self.url,data=self.data,cookies=self.cookies)
         elif self.method == "get":
-            res = requests.post(url=self.url, data=self.data,cookies=cookie)
+            res = requests.post(url=self.url, data=self.data,cookies=self.cookies)
         else:
             print("请输入正确的method")
         return res
@@ -32,6 +33,6 @@ if __name__ == "__main__":
     print(login_res.json())
     recharge_url = "http://119.23.241.154:8080/futureloan/mvc/api/member/recharge"
     recharge_data = {"mobilephone": "18688773467", "amount": "100"}
-    recharge_res = HttpRequest(recharge_url, recharge_data, "post").httprequest(cookie=login_res.cookies)
+    recharge_res = HttpRequest(recharge_url, recharge_data, "post").httprequest(cookies=login_res.cookies)
     print(recharge_res.json())
 
