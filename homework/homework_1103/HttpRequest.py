@@ -28,11 +28,11 @@ class HttpRequest(object):
 
 if __name__ == "__main__":
     login_url = "http://119.23.241.154:8080/futureloan/mvc/api/member/login"
-    login_data = {"mobilephone":"18688773467","pwd":"123456"}
+    login_data = {"mobilephone":"18544444402","pwd":"123456"}
     login_res = HttpRequest(login_url,login_data,"post").httprequest()
-    print(login_res.json())
-    recharge_url = "http://119.23.241.154:8080/futureloan/mvc/api/member/recharge"
-    recharge_data = {"mobilephone": "18688773467", "amount": "100"}
-    recharge_res = HttpRequest(recharge_url, recharge_data, "post").httprequest(cookies=login_res.cookies)
-    print(recharge_res.json())
+    print(login_res.cookies)
+    # recharge_url = "http://119.23.241.154:8080/futureloan/mvc/api/member/recharge"
+    # recharge_data = {"mobilephone": "18688773467", "amount": "100"}
+    # recharge_res = HttpRequest(recharge_url, recharge_data, "post").httprequest(cookies=login_res.cookies)
+    # print(recharge_res.json())
 

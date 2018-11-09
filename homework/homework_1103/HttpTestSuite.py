@@ -14,4 +14,5 @@ with open('my_report.html', 'wb') as myfile:
     runner = HTMLTestRunnerNew.HTMLTestRunner(stream=myfile,title='My unit test',description='hahah')
     runner.run(suite)
 
+globals()
 
